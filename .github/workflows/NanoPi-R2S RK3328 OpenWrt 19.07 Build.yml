@@ -88,6 +88,7 @@ jobs:
           
           git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
           git clone https://github.com/NateLol/luci-app-oled
+          git clone https://github.com/kuno/openwrt-openfortivpn
         
       - name: Install Clash Binaries
         run: |
@@ -100,6 +101,13 @@ jobs:
           # for updates, go to: https://github.com/vernesong/OpenClash/releases/tag/TUN
           wget -qO- https://github.com/vernesong/OpenClash/releases/download/TUN/clash-linux-armv8.tar.gz | tar xOvz > etc/openclash/core/clash_game
           chmod +x etc/openclash/core/clash*
+
+      - name: Install Tailscale
+        run: |
+          cd code/friendlywrt/package/base-files/files
+          wget https://github.com/kuno/openwrt-tailscale-enabler/releases/download/v1.4.2/tailscale-enabler-53e00.tgz
+          tar x -zvC . -f tailscale-enabler-53e00.tgz
+          rm tailscale-enabler-53e00.tgz
 
       - name: Update Target.mk
         run: |
