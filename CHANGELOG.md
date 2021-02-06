@@ -1,7 +1,6 @@
 ## 20210206
 * 开机挂载 Docker 资料分区
 
-
 ## 20210202
 * Make OTA Work Again
 
