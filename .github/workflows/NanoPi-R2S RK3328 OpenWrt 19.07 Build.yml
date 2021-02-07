@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
         with:
-          ref: master
+          ref: custom
 
       - name: Initialize Environment
         env:
@@ -88,7 +88,7 @@ jobs:
           
           git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
           git clone https://github.com/NateLol/luci-app-oled
-          git clone https://github.com/kuno/openwrt-openfortivpn
+          git clone https://github.com/kuno/openwrt-openfortivpn openfortivpn
         
       - name: Install Clash Binaries
         run: |
