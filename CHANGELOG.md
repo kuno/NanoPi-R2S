@@ -1,3 +1,6 @@
+## 20210207
+* Enable to build openfortivpn
+
 ## 20210206
 * 开机挂载 Docker 资料分区
 
