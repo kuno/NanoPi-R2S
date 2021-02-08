@@ -1,5 +1,9 @@
+## 20210208
+* 集成 luci-app-dockerman
+* 修复 UnblockNeteaseMusicGo 无法启动的问题
+
 ## 20210207
-* Enable to build openfortivpn
+* Enable to build openfortivp
 
 ## 20210206
 * 开机挂载 Docker 资料分区
