@@ -89,7 +89,8 @@ jobs:
           
           git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
           git clone https://github.com/NateLol/luci-app-oled
-          git clone https://github.com/kuno/openwrt-openfortivpn openfortivpn
+
+          cp -r package/openfortivpn .
         
       - name: Install Clash Binaries
         run: |
