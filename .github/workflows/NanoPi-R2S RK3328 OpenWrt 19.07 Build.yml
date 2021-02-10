@@ -106,10 +106,7 @@ jobs:
 
       - name: Install Tailscale
         run: |
-          cd code/friendlywrt/package/base-files/files
-          wget https://github.com/kuno/openwrt-tailscale-enabler/releases/download/v1.4.2/tailscale-enabler-53e00.tgz
-          tar x -zvC . -f tailscale-enabler-53e00.tgz
-          rm tailscale-enabler-53e00.tgz
+          cd -r package/tailscale/* code/friendlywrt/package/base-files/files/
 
       - name: Update Target.mk
         run: |
