@@ -2,8 +2,7 @@ name: NanoPi-R2S RK3328 OpenWrt 19.07 Build
 
 on:
   push:
-    paths:
-      - 'CHANGELOG.md'
+    branches: [custom]
 
 jobs:
 
@@ -106,7 +105,7 @@ jobs:
 
       - name: Install Tailscale
         run: |
-          cd -r package/tailscale/* code/friendlywrt/package/base-files/files/
+          cp -r package/tailscale/* code/friendlywrt/package/base-files/files/
 
       - name: Update Target.mk
         run: |
