@@ -106,7 +106,16 @@ jobs:
 
       - name: Install Tailscale
         run: |
-          cp -r package/tailscale/* code/friendlywrt/package/base-files/files/
+          echo -e "tailscale_${version}/tailscale" > /tmp/tailscale_${version}_files.txt
+          echo -e "tailscale_${version}/tailscaled" >> /tmp/tailscale_${version}_files.txt
+          wget -O- https://pkgs.tailscale.com/stable/tailscale_${version}.tgz | tar x -zvf - -C /tmp -T /tmp/tailscale_${version}_files.txt
+          cd code/friendlywrt/package/base-files/files
+          mkdir -p usr/bin
+          mv /tmp/tailscale_$version/* usr/bin/
+          rm -rf /tmp/tailscale_${version}
+          cp -r package/tailscale/etc/* code/friendlywrt/package/base-files/files/etc/
+        env:
+          version: 1.4.3_arm64
 
       - name: Update Target.mk
         run: |
