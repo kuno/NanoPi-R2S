@@ -2,7 +2,7 @@ name: NanoPi-R4S RK3399 OpenWrt 19.07 Build
 
 on:
   push:
-    branches: [custom]
+    branches: [rk3399]
 
 jobs:
 
