@@ -163,7 +163,7 @@ jobs:
           sed -i '/done/i[ -f /etc/init.d/dockerman ] && /etc/init.d/dockerman restart\n' package/base-files/files/root/setup.sh
 
           sed -i 's/\/opt\/docker/\/mnt\/mmcblk0p2\/docker/g' package/luci-app-dockerman/root/etc/config/dockerman
-          sed -i 's/\/root/\/mnt\/mmcblk0p2/g' package/luci-app-r2sflasher/root/usr/bin/rom_flash
+          $sed -i 's/\/root/\/mnt\/mmcblk0p2/g' package/luci-app-r2sflasher/root/usr/bin/rom_flash
 
       - name: Patch Kernel
         run: |
@@ -173,7 +173,7 @@ jobs:
       - name: Custom Configure Files
         run: |
           rm -f code/friendlywrt/.config*
-          cp r2s-rk3399-config code/configs/config_rk3399
+          cp r4s-rk3399-config code/configs/config_rk3399
 
       - name: Set Default Values
         run: |
@@ -188,7 +188,7 @@ jobs:
         run: |
           cd code
           sed -i 's/set -eu/set -u/' scripts/mk-friendlywrt.sh
-          ./build.sh nanopi_r2s.mk
+          ./build.sh nanopi_r4s.mk
 
       - name: Fix Rootfs Owner and Group
         run: |
