@@ -58,7 +58,7 @@ jobs:
 
       - name: Install OpenfortiVPN
         run: |
-          cd code/friendlywrt/packag
+          cd code/friendlywrt/package
           cp -r $GITHUB_WORKSPACE/package/openfortivpn .
           echo 'src-git custom https://github.com/adrienverge/openfortivpn.git' >> feeds.conf.default
 

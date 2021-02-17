@@ -1,4 +1,3 @@
-
 #
 # Copyright (C) 2016 Ralf Schlatterbeck Open Source Consulting
 # This Software is under the GNU General Public License, Version 3.
