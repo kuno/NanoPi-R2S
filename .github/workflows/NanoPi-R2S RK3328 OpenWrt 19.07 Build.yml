@@ -65,8 +65,6 @@ jobs:
       - name: Install Extra Packages
         run: |
           cd code/friendlywrt/package
-          svn cleanup
-          svn up
 
           git clone https://github.com/rufengsuixing/luci-app-adguardhome
 
