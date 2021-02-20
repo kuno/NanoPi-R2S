@@ -95,6 +95,7 @@ jobs:
           
           git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
           git clone https://github.com/NateLol/luci-app-oled
+          git clone https://github.com/awesome-openwrt/app-ssr-plus.git
         
       - name: Install Clash Binaries
         run: |
