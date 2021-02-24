@@ -56,11 +56,11 @@ jobs:
           sed -i 's/^src-git packages.*/src-git packages https:\/\/github.com\/coolsnowwolf\/packages;openwrt-19.07/' feeds.conf.default
           echo 'src-git node https://github.com/nxhack/openwrt-node-packages.git' >> feeds.conf.default
 
-      #- name: Install OpenfortiVPN
-      #  run: |
-      #    cd code/friendlywrt/package
-      #    cp -r $GITHUB_WORKSPACE/package/openfortivpn .
-      #    echo 'src-git custom https://github.com/adrienverge/openfortivpn.git' >> feeds.conf.default
+      - name: Install OpenfortiVPN
+        run: |
+          cd code/friendlywrt/package
+          cp -r $GITHUB_WORKSPACE/package/openfortivpn .
+          echo 'src-git custom https://github.com/adrienverge/openfortivpn.git' >> feeds.conf.default
 
       - name: Install Extra Packages
         run: |
@@ -95,7 +95,7 @@ jobs:
           
           git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
           git clone https://github.com/NateLol/luci-app-oled
-          #git clone https://github.com/awesome-openwrt/app-ssr-plus.git
+          git clone https://github.com/awesome-openwrt/app-ssr-plus.git
         
       - name: Install Clash Binaries
         run: |
@@ -109,18 +109,18 @@ jobs:
           wget -qO- https://github.com/vernesong/OpenClash/releases/download/TUN/clash-linux-armv8.tar.gz | tar xOvz > etc/openclash/core/clash_game
           chmod +x etc/openclash/core/clash*
 
-      #- name: Install Tailscale
-      #  run: |
-      #    cp -r package/tailscale/etc/* code/friendlywrt/package/base-files/files/etc/
-      #    echo -e "tailscale_${version}/tailscale" > /tmp/tailscale_${version}_files.txt
-      #    echo -e "tailscale_${version}/tailscaled" >> /tmp/tailscale_${version}_files.txt
-      #    wget -O- https://pkgs.tailscale.com/stable/tailscale_${version}.tgz | tar x -zvf - -C /tmp -T /tmp/tailscale_${version}_files.txt
-      #    cd code/friendlywrt/package/base-files/files
-      #    mkdir -p usr/bin
-      #    mv /tmp/tailscale_$version/* usr/bin/
-      #    rm -rf /tmp/tailscale_${version}
-      #  env:
-      #    version: 1.4.4_arm64
+      - name: Install Tailscale
+        run: |
+          cp -r package/tailscale/etc/* code/friendlywrt/package/base-files/files/etc/
+          echo -e "tailscale_${version}/tailscale" > /tmp/tailscale_${version}_files.txt
+          echo -e "tailscale_${version}/tailscaled" >> /tmp/tailscale_${version}_files.txt
+          wget -O- https://pkgs.tailscale.com/stable/tailscale_${version}.tgz | tar x -zvf - -C /tmp -T /tmp/tailscale_${version}_files.txt
+          cd code/friendlywrt/package/base-files/files
+          mkdir -p usr/bin
+          mv /tmp/tailscale_$version/* usr/bin/
+          rm -rf /tmp/tailscale_${version}
+        env:
+          version: 1.4.5_arm64
 
       - name: Update Target.mk
         run: |
