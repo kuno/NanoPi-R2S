@@ -60,7 +60,7 @@ jobs:
         run: |
           cd code/friendlywrt/package
           cp -r $GITHUB_WORKSPACE/package/openfortivpn .
-          echo 'src-git custom https://github.com/adrienverge/openfortivpn.git' >> feeds.conf.default
+          #echo 'src-git custom https://github.com/adrienverge/openfortivpn.git' >> feeds.conf.default
 
       - name: Install Extra Packages
         run: |
@@ -95,7 +95,7 @@ jobs:
           
           git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git
           git clone https://github.com/NateLol/luci-app-oled
-          git clone https://github.com/awesome-openwrt/app-ssr-plus.git
+          #git clone https://github.com/awesome-openwrt/app-ssr-plus.git
         
       - name: Install Clash Binaries
         run: |
