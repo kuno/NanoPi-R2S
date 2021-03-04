@@ -85,6 +85,7 @@ jobs:
           svn co https://github.com/xiaorouji/openwrt-passwall/trunk/brook
           svn co https://github.com/xiaorouji/openwrt-passwall/trunk/chinadns-ng
           svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-core
+          svn co https://github.com/xiaorouji/openwrt-passwall/trunk/xray-plugin
           
           svn co https://github.com/songchenwen/nanopi-r2s/trunk/luci-app-r2sflasher
           
@@ -154,6 +155,7 @@ jobs:
           
           sed -i '/upx/d' package/lean/frp/Makefile
           sed -i '/upx/d' package/lean/UnblockNeteaseMusicGo/Makefile
+          sed -i '/upx/d' package/trojan-go/Makefile
           
           wget -O package/kernel/kmod-sched-cake/Makefile https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/kernel/kmod-sched-cake-oot/Makefile
           wget -O feeds/packages/libs/libxml2/Makefile https://raw.githubusercontent.com/coolsnowwolf/packages/master/libs/libxml2/Makefile
@@ -202,6 +204,7 @@ jobs:
           lodev=$(sudo losetup -f)
           echo "found unused loop dev $lodev"
           sudo losetup -o 100663296 $lodev code/out/*.img
+          sudo mkfs -t ext4 $lodev
           sudo rm -rf /mnt/friendlywrt-tmp
           sudo mkdir -p /mnt/friendlywrt-tmp
           sudo mount $lodev /mnt/friendlywrt-tmp
@@ -214,10 +217,7 @@ jobs:
           rm -rf ./artifact/
           mkdir -p ./artifact/
 
-          #find code/out/ -name "FriendlyWrt_*img" | xargs -I{} sh -c 'f=$(basename $1); zip -r -j "./artifact/${f}.zip" $1' sh {} \;
           cp code/out/*.img.zip ./artifact/
-          #find code/friendlywrt/bin/targets/rockchip-rk3328/generic -name "openwrt*-squashfs.img" | xargs -I{} sh -c 'f=$(basename $1); zip -r -j "./artifact/${f}.zip" $1' sh {} \;
-          
           cp code/friendlywrt/.config ./artifact/
 
       - name: Upload Artifact
