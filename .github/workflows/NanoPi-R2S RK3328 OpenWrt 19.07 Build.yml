@@ -122,7 +122,7 @@ jobs:
           mv /tmp/tailscale_$version/* usr/bin/
           rm -rf /tmp/tailscale_${version}
         env:
-          version: 1.4.5_arm64
+          version: 1.6.0_arm64
 
       - name: Update Target.mk
         run: |
