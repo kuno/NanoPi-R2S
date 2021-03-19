@@ -57,10 +57,10 @@ jobs:
           sed -i 's/^src-git packages.*/src-git packages https:\/\/github.com\/coolsnowwolf\/packages;openwrt-19.07/' feeds.conf.default
           echo 'src-git node https://github.com/nxhack/openwrt-node-packages.git' >> feeds.conf.default
 
-      #- name: Install OpenfortiVPN
-      #  run: |
-      #    cd code/friendlywrt/package
-      #    cp -r $GITHUB_WORKSPACE/package/openfortivpn .
+      - name: Install OpenfortiVPN
+        run: |
+          cd code/friendlywrt/package
+          cp -r $GITHUB_WORKSPACE/package/openfortivpn .
           #echo 'src-git custom https://github.com/adrienverge/openfortivpn.git' >> feeds.conf.default
 
       - name: Install Extra Packages
