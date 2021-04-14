@@ -51,4 +51,4 @@ define Package/openfortivpn/conffiles
 /etc/config/openfortivpn
 endef
 
-$(eval $(call BuildPackage,openfortivpn))
+$(eval $(call BuildPackage,openfortivpn)
